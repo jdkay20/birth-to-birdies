@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birth to Birdies | The Ultimate Guide to Junior Golf Development</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#0B192C',
+                            900: '#070F1E',
+                            950: '#040813',
+                        },
+                        fairway: {
+                            400: '#4ADE80',
+                            500: '#10B981',
+                            600: '#059669',
+                            700: '#047857',
+                        },
+                        sunrise: {
+                            50: '#FFF7ED',
+                            100: '#FFEDD5',
+                            300: '#FDBA74',
+                            400: '#FB923C',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .sunrise-gradient {
+            background: linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 40%, #E0F2FE 100%);
+        }
+        .hero-bg {
+            background: radial-gradient(circle at 70% 30%, rgba(254, 215, 170, 0.4) 0%, rgba(240, 253, 244, 0.2) 50%, rgba(255, 255, 255, 1) 100%);
+        }
+        .book-shadow {
+            box-shadow: -15px 15px 35px -5px rgba(7, 15, 30, 0.35), -5px 5px 15px -3px rgba(7, 15, 30, 0.2);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-800 bg-slate-50 antialiased selection:bg-fairway-500 selection:text-white">
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-fairway-600 to-emerald-400 flex items-center justify-center text-white shadow-md shadow-fairway-600/20">
+                        <i data-lucide="flag" class="w-5 h-5"></i>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-navy-900">Birth to Birdies</span>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8 font-medium text-slate-600 text-sm">
+                    <a href="#about" class="hover:text-fairway-600 transition-colors">About Book</a>
+                    <a href="#roadmap" class="hover:text-fairway-600 transition-colors">6-Phase Roadmap</a>
+                    <a href="#toolkits" class="hover:text-fairway-600 transition-colors">Parent Toolkits</a>
+                    <a href="#preorder" class="px-5 py-2.5 rounded-full bg-navy-900 text-white hover:bg-fairway-600 transition-all duration-300 shadow-md shadow-navy-900/10 font-semibold">Pre-Order Book</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-slate-600 hover:text-navy-900 hover:bg-slate-100 focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 bg-white px-4 pt-2 pb-6 space-y-3 shadow-xl">
+            <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">About Book</a>
+            <a href="#roadmap" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">6-Phase Roadmap</a>
+            <a href="#toolkits" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">Parent Toolkits</a>
+            <a href="#preorder" class="block w-full text-center px-5 py-3 rounded-xl bg-fairway-600 text-white font-semibold shadow-lg shadow-fairway-600/20">Pre-Order Now</a>
+        </div>
+    </header>
+
+    <!-- 1. Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden hero-bg">
+        <!-- Floating Accent Glows -->
+        <div class="absolute top-1/4 left-10 w-72 h-72 bg-sunrise-300/30 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-fairway-400/20 rounded-full blur-3xl -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Hero Left Column: Copy & CTAs -->
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <!-- Badge -->
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sunrise-100 text-amber-900 border border-sunrise-300/60 text-xs sm:text-sm font-semibold tracking-wide">
+                        <i data-lucide="sparkles" class="w-4 h-4 text-sunrise-400"></i>
+                        <span>The Premier Blueprint for Young Athletes</span>
+                    </div>
+
+                    <!-- Heading -->
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-navy-950 tracking-tight leading-[1.15]">
+                        Birth to Birdies: <br>
+                        <span class="font-serif italic font-normal text-fairway-600">The Ultimate Guide</span> to Junior Golf Development
+                    </h1>
+
+                    <!-- Subtitle -->
+                    <p class="text-lg sm:text-xl text-slate-600 font-normal max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        From first steps to full swings. Empowering parents and coaches to nurture athletic mastery, lifelong confidence, and a passion for the game—phase by phase.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#preorder" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-navy-900 text-white hover:bg-fairway-600 font-bold text-base shadow-xl shadow-navy-900/20 hover:shadow-fairway-600/30 transition-all duration-300 flex items-center justify-center gap-3 group">
+                            <span>Pre-Order Now</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="#roadmap" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white text-navy-900 hover:bg-slate-100 font-bold text-base border border-slate-200 shadow-sm transition-all duration-300 flex items-center justify-center gap-2">
+                            <i data-lucide="compass" class="w-5 h-5 text-fairway-600"></i>
+                            <span>Explore the 6 Phases</span>
+                        </a>
+                    </div>
+
+                    <!-- Social Proof / Highlight Pills -->
+                    <div class="pt-6 border-t border-slate-200/80 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
+                        <div>
+                            <span class="block text-2xl font-bold text-navy-900">0 - 18+</span>
+                            <span class="text-xs text-slate-500 font-medium">Age Development</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl font-bold text-navy-900">6 Phases</span>
+                            <span class="text-xs text-slate-500 font-medium">Structured Roadmap</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl font-bold text-navy-900">100%</span>
+                            <span class="text-xs text-slate-500 font-medium">Actionable Toolkits</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Right Column: Interactive Book Cover Mockup -->
+                <div class="lg:col-span-5 flex justify-center lg:justify-end">
+                    <div class="relative group perspective-1000">
+                        <!-- Background Glow behind book -->
+                        <div class="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-fairway-500/30 via-sunrise-300/30 to-sky-300/30 blur-2xl opacity-70 group-hover:opacity-100 transition duration-500"></div>
+
+                        <!-- Book Container -->
+                        <div class="relative w-[280px] sm:w-[320px] h-[420px] sm:h-[480px] bg-navy-900 rounded-r-2xl rounded-l-sm book-shadow transform -rotate-3 group-hover:rotate-0 group-hover:scale-105 transition-all duration-500 flex flex-col justify-between p-8 text-white border-l-8 border-navy-950 overflow-hidden">
+                            <!-- Texture / Pattern overlay -->
+                            <div class="absolute inset-0 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px] opacity-10"></div>
+                            
+                            <!-- Cover Header -->
+                            <div class="relative z-10 space-y-1">
+                                <span class="text-xs font-semibold tracking-widest uppercase text-fairway-400">The Essential Blueprint</span>
+                                <div class="w-10 h-1 bg-sunrise-400 rounded-full"></div>
+                            </div>
+
+                            <!-- Cover Title -->
+                            <div class="relative z-10 my-auto space-y-3">
+                                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight leading-none text-white">
+                                    BIRTH <span class="text-slate-400 text-2xl font-light">TO</span> <br>
+                                    <span class="text-fairway-400 font-serif italic font-normal">BIRDIES</span>
+                                </h2>
+                                <p class="text-xs text-slate-300 font-medium leading-relaxed">
+                                    A Parent's Guide to Building Athletic Roots, Golf Mastery & Lifelong Character.
+                                </p>
+                            </div>
+
+                            <!-- Graphic Element on Cover -->
+                            <div class="relative z-10 flex items-center justify-between pt-6 border-t border-slate-700/60">
+                                <div>
+                                    <span class="block text-[10px] text-slate-400 uppercase tracking-wider">Written by</span>
+                                    <span class="text-xs font-bold text-slate-200">Junior Golf Academy</span>
+                                </div>
+                                <div class="w-8 h-8 rounded-full bg-fairway-500/20 border border-fairway-400/40 flex items-center justify-center">
+                                    <i data-lucide="trophy" class="w-4 h-4 text-fairway-400"></i>
+                                </div>
+                            </div>
+
+                            <!-- Book Spine Accent -->
+                            <div class="absolute top-0 bottom-0 left-0 w-3 bg-gradient-to-r from-white/20 to-transparent"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. About the Book Section -->
+    <section id="about" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-fairway-600">Why This Book Matters</h2>
+                <p class="text-3xl sm:text-4xl font-bold text-navy-950">More Than Just a Golf Swing: Building Complete Athletes</p>
+                <div class="w-16 h-1 bg-fairway-500 mx-auto rounded-full"></div>
+                <p class="text-slate-600 text-base sm:text-lg leading-relaxed pt-2">
+                    Raising a successful young golfer isn't about early specialization or high-pressure drills. *Birth to Birdies* offers a compassionate, science-backed framework for every stage of your child's physical and emotional growth.
+                </p>
+            </div>
+
+            <!-- Feature Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-fairway-500/30 hover:shadow-xl hover:shadow-fairway-600/5 transition-all duration-300 space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-sunrise-100 text-sunrise-400 flex items-center justify-center">
+                        <i data-lucide="activity" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900">Biomechanics & Movement</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Lay the foundation early with age-appropriate movement patterns, balance, and spatial awareness before touching a club.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-fairway-500/30 hover:shadow-xl hover:shadow-fairway-600/5 transition-all duration-300 space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-100 text-fairway-600 flex items-center justify-center">
+                        <i data-lucide="smile" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900">Fun-First Psychology</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Keep burnout at bay. Learn how to transform practice into play, creating intrinsic motivation that lasts a lifetime.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-fairway-500/30 hover:shadow-xl hover:shadow-fairway-600/5 transition-all duration-300 space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center">
+                        <i data-lucide="brain" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900">Mental Growth & Grit</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Nurture emotional resilience, focus, and decision-making skills that serve kids both on the course and in life.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-fairway-500/30 hover:shadow-xl hover:shadow-fairway-600/5 transition-all duration-300 space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center">
+                        <i data-lucide="target" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900">Athletic Milestones</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Clear benchmarks from toddler play to competitive high school play and collegiate recruitment pathways.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Interactive 6-Phase Roadmap -->
+    <section id="roadmap" class="py-24 bg-navy-900 text-white relative overflow-hidden">
+        <!-- Subtle Glow Backgrounds -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-fairway-600/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-sunrise-400/10 rounded-full blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-fairway-400">Step-By-Step Growth</h2>
+                <p class="text-3xl sm:text-4xl font-bold text-white">The 6 Developmental Phases</p>
+                <div class="w-16 h-1 bg-fairway-400 mx-auto rounded-full"></div>
+                <p class="text-slate-300 text-base sm:text-lg">
+                    Click through the phases to explore how *Birth to Birdies* guides your child through every milestone of their journey.
+                </p>
+            </div>
+
+            <!-- Tab Buttons Container -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 mb-10 p-2 bg-navy-950/60 rounded-2xl border border-slate-800">
+                <button onclick="switchPhase(1)" id="tab-1" class="phase-tab active flex flex-col items-center p-3 sm:p-4 rounded-xl text-center transition-all duration-300 bg-fairway-600 text-white shadow-lg">
+                    <span class="text-[10px] font-bold uppercase tracking-wider opacity-80">Phase 1</span>
+                    <span class="text-xs sm:text-sm font-semibold mt-1">Foundations</span>
+                </button>
+                <button onclick="switchPhase(2)" id="tab-2" class="phase-tab flex flex-col items-center p-3 sm:p-4 rounded-xl text-center transition-all duration-300 text-slate-400 hover:text-white hover:bg-slate-800/60">
+                    <span class="text-[10px] font-bold uppercase tracking-wider opacity-80">Phase 2</span>
+                    <span class="text-xs sm:text-sm font-semibold mt-1">Athletic Skills</span>
+                </button>
+                <button onclick="switchPhase(3)" id="tab-3" class="phase-tab flex flex-col items-center p-3 sm:p-4 rounded-xl text-center transition-all duration-300 text-slate-400 hover:text-white hover:bg-slate-800/60">
+                    <span class="text-[10px] font-bold uppercase tracking-wider opacity-80">Phase 3</span>
+                    <span class="text-xs sm:text-sm font-semibold mt-1">Golf Exploration</span>
+                </button>
+                <button onclick="switchPhase(4)" id="tab-4" class="phase-tab flex flex-col items-center p-3 sm:p-4 rounded-xl text-center transition-all duration-300 text-slate-400 hover:text-white hover:bg-slate-800/60">
+                    <span class="text-[10px] font-bold uppercase tracking-wider opacity-80">Phase 4</span>
+                    <span class="text-xs sm:text-sm font-semibold mt-1">On-Course Play</span>
+                </button>
+                <button onclick="switchPhase(5)" id="tab-5" class="phase-tab flex flex-col items-center p-3 sm:p-4 rounded-xl text-center transition-all duration-300 text-slate-400 hover:text-white hover:bg-slate-800/60">
+                    <span class="text-[10px] font-bold uppercase tracking-wider opacity-80">Phase 5</span>
+                    <span class="text-xs sm:text-sm font-semibold mt-1">Competitive</span>
+                </button>
+                <button onclick="switchPhase(6)" id="tab-6" class="phase-tab flex flex-col items-center p-3 sm:p-4 rounded-xl text-center transition-all duration-300 text-slate-400 hover:text-white hover:bg-slate-800/60">
+                    <span class="text-[10px] font-bold uppercase tracking-wider opacity-80">Phase 6</span>
+                    <span class="text-xs sm:text-sm font-semibold mt-1">Elite Pathway</span>
+                </button>
+            </div>
+
+            <!-- Dynamic Phase Content Card -->
+            <div class="bg-navy-800/80 border border-slate-700/80 rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-md min-h-[340px] flex flex-col justify-between">
+                <div id="phase-content">
+                    <!-- Default Phase 1 Content JS inserted -->
+                </div>
+
+                <!-- Footer Control inside Card -->
+                <div class="flex items-center justify-between pt-8 border-t border-slate-700/60 mt-8">
+                    <button onclick="prevPhase()" id="prev-btn" class="flex items-center gap-2 text-xs sm:text-sm text-slate-400 hover:text-white transition-colors disabled:opacity-30 disabled:cursor-not-allowed">
+                        <i data-lucide="chevron-left" class="w-4 h-4"></i> Previous Phase
+                    </button>
+                    <span id="phase-counter" class="text-xs font-mono text-fairway-400 font-bold">1 / 6</span>
+                    <button onclick="nextPhase()" id="next-btn" class="flex items-center gap-2 text-xs sm:text-sm text-slate-400 hover:text-white transition-colors">
+                        Next Phase <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. Scorecards & Parent Toolkits Section -->
+    <section id="toolkits" class="py-24 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Toolkit Details -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-fairway-500/10 text-fairway-700 text-xs font-bold uppercase tracking-wider">
+                        <i data-lucide="clipboard-list" class="w-4 h-4"></i>
+                        Practical Parent Tools
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-950">
+                        Interactive Parent Scorecards & Progress Dashboards
+                    </h2>
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        Never guess what to work on next. The book includes simple, fillable scorecards designed specifically for parents—not to track strokes, but to track athletic landmarks, fun metrics, and emotional growth.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <!-- Checklist item 1 -->
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-slate-200/80 shadow-sm">
+                            <div class="w-8 h-8 rounded-lg bg-fairway-100 text-fairway-600 flex items-center justify-center shrink-0 mt-0.5">
+                                <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy-900 text-sm">Fun & Engagement Index</h4>
+                                <p class="text-slate-500 text-xs mt-0.5">Evaluate practice quality by enthusiasm levels rather than scoring results.</p>
+                            </div>
+                        </div>
+
+                        <!-- Checklist item 2 -->
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-slate-200/80 shadow-sm">
+                            <div class="w-8 h-8 rounded-lg bg-sunrise-100 text-sunrise-400 flex items-center justify-center shrink-0 mt-0.5">
+                                <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy-900 text-sm">Movement Skill Checklists</h4>
+                                <p class="text-slate-500 text-xs mt-0.5">Track foundational motor skills like throwing, jumping, and rotation balance.</p>
+                            </div>
+                        </div>
+
+                        <!-- Checklist item 3 -->
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-slate-200/80 shadow-sm">
+                            <div class="w-8 h-8 rounded-lg bg-sky-100 text-sky-600 flex items-center justify-center shrink-0 mt-0.5">
+                                <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy-900 text-sm">Parent Communication Guides</h4>
+                                <p class="text-slate-500 text-xs mt-0.5">Exact scripts on what to say in the car ride home after a tough round.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Preview Component -->
+                <div class="lg:col-span-6">
+                    <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xl relative overflow-hidden">
+                        <!-- Scorecard Header -->
+                        <div class="flex items-center justify-between pb-6 border-b border-slate-100">
+                            <div>
+                                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Sample Scorecard</span>
+                                <h3 class="text-lg font-bold text-navy-900">Phase 3: Skill Milestone Tracker</h3>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-sunrise-100 text-sunrise-400 font-bold text-xs">Age 6 - 8</span>
+                        </div>
+
+                        <!-- Mock Scorecard Table -->
+                        <div class="py-6 space-y-4">
+                            <!-- Metric 1 -->
+                            <div class="space-y-2">
+                                <div class="flex justify-between text-xs font-semibold">
+                                    <span class="text-navy-900">Rotational Speed & Balance</span>
+                                    <span class="text-fairway-600 font-bold">Completed (5/5)</span>
+                                </div>
+                                <div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+                                    <div class="w-full h-full bg-fairway-500 rounded-full"></div>
+                                </div>
+                            </div>
+
+                            <!-- Metric 2 -->
+                            <div class="space-y-2">
+                                <div class="flex justify-between text-xs font-semibold">
+                                    <span class="text-navy-900">Target Aim & Visual Alignment</span>
+                                    <span class="text-sunrise-400 font-bold">In Progress (3/5)</span>
+                                </div>
+                                <div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+                                    <div class="w-3/5 h-full bg-sunrise-400 rounded-full"></div>
+                                </div>
+                            </div>
+
+                            <!-- Metric 3 -->
+                            <div class="space-y-2">
+                                <div class="flex justify-between text-xs font-semibold">
+                                    <span class="text-navy-900">Post-Practice Positive Reflection</span>
+                                    <span class="text-fairway-600 font-bold">Mastered</span>
+                                </div>
+                                <div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+                                    <div class="w-full h-full bg-fairway-500 rounded-full"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mini Callout box inside Toolkit -->
+                        <div class="p-4 rounded-xl bg-navy-900 text-white flex items-center gap-3">
+                            <i data-lucide="lightbulb" class="w-6 h-6 text-sunrise-300 shrink-0"></i>
+                            <p class="text-xs text-slate-300 leading-snug">
+                                <strong class="text-white">Pro Tip:</strong> Focus 80% of praise on effort and attitude, 20% on outcome.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Pre-Order & Newsletter Sign-Up Section -->
+    <section id="preorder" class="py-24 sunrise-gradient relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-white/80 backdrop-blur-xl border border-white/60 rounded-3xl p-8 sm:p-12 lg:p-16 shadow-2xl text-center space-y-8">
+                
+                <div class="max-w-2xl mx-auto space-y-4">
+                    <span class="px-4 py-1.5 rounded-full bg-fairway-500/10 text-fairway-700 text-xs font-bold uppercase tracking-wider">Early Access & Exclusive Bonuses</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-950 tracking-tight">
+                        Be the First to Guide Your Junior Champion
+                    </h2>
+                    <p class="text-slate-600 text-base sm:text-lg">
+                        Pre-order *Birth to Birdies* today or sign up for launch updates to receive the free <strong>"Parent Game-Day Playbook" PDF download</strong> immediately.
+                    </p>
+                </div>
+
+                <!-- Form -->
+                <form id="signup-form" onsubmit="handleFormSubmit(event)" class="max-w-md mx-auto space-y-4">
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <input 
+                            type="email" 
+                            id="email-input"
+                            required 
+                            placeholder="Enter your email address..." 
+                            class="w-full px-5 py-4 rounded-2xl bg-white border border-slate-300 text-navy-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-fairway-500 focus:border-transparent text-sm shadow-sm"
+                        >
+                        <button 
+                            type="submit" 
+                            class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-navy-900 text-white font-bold text-sm hover:bg-fairway-600 transition-all duration-300 shadow-lg shadow-navy-900/20 shrink-0 flex items-center justify-center gap-2"
+                        >
+                            <span>Pre-Order</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <p class="text-[11px] text-slate-500">We respect your privacy. Instant access to bonus toolkits upon signup.</p>
+                </form>
+
+                <!-- Success Message Container -->
+                <div id="form-success" class="hidden max-w-md mx-auto p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-semibold flex items-center justify-center gap-2">
+                    <i data-lucide="check-circle" class="w-5 h-5 text-emerald-600"></i>
+                    <span>Thank you! Your spot is reserved and your bonus playbook is on its way.</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-950 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+            <div class="flex items-center justify-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-fairway-600 flex items-center justify-center text-white">
+                    <i data-lucide="flag" class="w-4 h-4"></i>
+                </div>
+                <span class="font-bold text-lg text-white tracking-tight">Birth to Birdies</span>
+            </div>
+            <p class="text-xs max-w-md mx-auto text-slate-500">
+                Empowering the next generation of golfers through age-appropriate athletic development and positive parenting.
+            </p>
+            <div class="pt-4 border-t border-slate-900 text-xs text-slate-600 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <span>&copy; <span id="year"></span> Birth to Birdies. All rights reserved.</span>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-slate-400 transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-slate-400 transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-slate-400 transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Dynamic Interactions -->
+    <script>
+        // Set dynamic current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // 6 Phases Data Object
+        const phasesData = [
+            {
+                phase: 1,
+                title: "Phase 1: Foundations & Sensory Play",
+                age: "Infancy – Early Childhood (Ages 0-3)",
+                icon: "baby",
+                color: "bg-sunrise-400",
+                description: "Focus on basic movement patterns, tactile spatial awareness, balance, and hand-eye coordination through playful, unconstrained exploration.",
+                milestones: [
+                    "Developing fundamental grip strength and reach mechanics",
+                    "Body spatial awareness & balance through unstructured play",
+                    "Building positive associations with movement and outdoor play environments"
+                ]
+            },
+            {
+                phase: 2,
+                title: "Phase 2: Fundamental Athletic Skills",
+                age: "Early Childhood (Ages 4-6)",
+                icon: "sparkles",
+                color: "bg-emerald-500",
+                description: "Introducing multi-sport rotation, throwing, catching, and jumping. Establishing core rotational speed and motor control long before swing mechanics.",
+                milestones: [
+                    "Bilateral movement & two-handed coordination games",
+                    "Throwing for target accuracy & rotational torso power",
+                    "Introduction to lightweight, sized plastic clubs in play settings"
+                ]
+            },
+            {
+                phase: 3,
+                title: "Phase 3: Golf Movement & Skill Exploration",
+                age: "Early Primary (Ages 6-8)",
+                icon: "compass",
+                color: "bg-sky-500",
+                description: "First structured introduction to golf fundamentals. Emphasis on fun target games, basic setup postures, and short-game creativity.",
+                milestones: [
+                    "Understanding target lines, stance, and relaxed grip foundations",
+                    "Chipping & putting exploration with interactive targets",
+                    "Establishing healthy practice habits rooted in fun and curiosity"
+                ]
+            },
+            {
+                phase: 4,
+                title: "Phase 4: Intermediate Play & On-Course Confidence",
+                age: "Junior (Ages 8-11)",
+                icon: "map-pin",
+                color: "bg-indigo-500",
+                description: "Transitioning from range practice to course play. Learning course management, basic rules, sportsmanship, and scoring resilience.",
+                milestones: [
+                    "Teeing off on age-appropriate forward tee lengths",
+                    "Developing basic course management & club selection awareness",
+                    "Fostering emotional resilience during challenging holes"
+                ]
+            },
+            {
+                phase: 5,
+                title: "Phase 5: Competitive Athletic Development",
+                age: "Early Teen (Ages 11-14)",
+                icon: "trophy",
+                color: "bg-purple-500",
+                description: "Refining swing mechanics, specialized physical conditioning, tournament preparation, and managing competitive pressures.",
+                milestones: [
+                    "Personalized swing biomechanics assessment & physical fitness",
+                    "Entering local & regional junior golf tournament circuits",
+                    "Developing pre-shot routines & mental toughness strategies"
+                ]
+            },
+            {
+                phase: 6,
+                title: "Phase 6: Elite Performance & College Pathway",
+                age: "High School & Beyond (Ages 14-18+)",
+                icon: "award",
+                color: "bg-amber-500",
+                description: "High-level tournament play, collegiate recruiting preparation, peak performance management, and lifelong love for the game.",
+                milestones: [
+                    "National junior tour competition & ranking portfolio management",
+                    "College recruitment resume building & coach communication",
+                    "Mastering high-pressure execution and autonomous self-coaching"
+                ]
+            }
+        ];
+
+        let currentPhase = 1;
+
+        function renderPhase(phaseNum) {
+            const data = phasesData.find(p => p.phase === phaseNum);
+            const container = document.getElementById('phase-content');
+
+            container.innerHTML = `
+                <div class="space-y-6 animate-fade-in">
+                    <div class="flex flex-wrap items-center justify-between gap-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl ${data.color} text-white flex items-center justify-center font-bold">
+                                ${data.phase}
+                            </div>
+                            <div>
+                                <h3 class="text-xl sm:text-2xl font-bold text-white">${data.title}</h3>
+                                <span class="text-xs text-slate-400 font-medium">${data.age}</span>
+                            </div>
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-slate-800 text-fairway-400 border border-slate-700 text-xs font-semibold">
+                            Phase ${data.phase} of 6
+                        </span>
+                    </div>
+
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+                        ${data.description}
+                    </p>
+
+                    <div class="space-y-3 pt-2">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">Key Development Milestones:</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            ${data.milestones.map(m => `
+                                <div class="p-3.5 rounded-xl bg-navy-900/90 border border-slate-700/60 flex items-start gap-2.5">
+                                    <i data-lucide="check" class="w-4 h-4 text-fairway-400 shrink-0 mt-0.5"></i>
+                                    <span class="text-xs text-slate-200 leading-snug">${m}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Re-initialize Lucide Icons for dynamic content
+            lucide.createIcons();
+
+            // Update Tabs styling
+            document.querySelectorAll('.phase-tab').forEach((tab, index) => {
+                if (index + 1 === phaseNum) {
+                    tab.className = "phase-tab active flex flex-col items-center p-3 sm:p-4 rounded-xl text-center transition-all duration-300 bg-fairway-600 text-white shadow-lg";
+                } else {
+                    tab.className = "phase-tab flex flex-col items-center p-3 sm:p-4 rounded-xl text-center transition-all duration-300 text-slate-400 hover:text-white hover:bg-slate-800/60";
+                }
+            });
+
+            // Update Counter & Buttons
+            document.getElementById('phase-counter').textContent = `${phaseNum} / 6`;
+            document.getElementById('prev-btn').disabled = (phaseNum === 1);
+            document.getElementById('next-btn').disabled = (phaseNum === 6);
+        }
+
+        function switchPhase(phaseNum) {
+            currentPhase = phaseNum;
+            renderPhase(currentPhase);
+        }
+
+        function nextPhase() {
+            if (currentPhase < 6) {
+                currentPhase++;
+                renderPhase(currentPhase);
+            }
+        }
+
+        function prevPhase() {
+            if (currentPhase > 1) {
+                currentPhase--;
+                renderPhase(currentPhase);
+            }
+        }
+
+        // Handle Newsletter / Pre-Order Form Submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const emailInput = document.getElementById('email-input');
+            if (emailInput.value) {
+                document.getElementById('signup-form').classList.add('hidden');
+                document.getElementById('form-success').classList.remove('hidden');
+            }
+        }
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Initialize Phase 1 on Load
+        window.onload = function() {
+            renderPhase(1);
+        };
+    </script>
+</body>
+</html>
